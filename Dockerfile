@@ -9,8 +9,10 @@ RUN apt-get update && \
         curl \
         gnupg \
         neovim \
+        git \
         bash-completion \
         ssh \
+        sudo \
         lsb-release \
         python3 python3-pip python3-venv build-essential \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
@@ -25,6 +27,7 @@ RUN mkdir /opt/python-venv \
   && chown wnd-admin:wnd-admin /opt/python-venv
 
 RUN echo "export PS1='\[\e[1;37m\]W\[\e[1;31m\]N\[\e[1;37m\]D\[\e[0m\] \[\e[0;36m\]\u:\[\e[0;33m\]\w\[\e[0m\]\$ '" >> /etc/bash.bashrc
+RUN echo "alias docker='sudo docker'" >> /etc/bash.bashrc
 
 WORKDIR $HOME
 USER wnd-admin
