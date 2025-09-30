@@ -24,7 +24,7 @@ RUN useradd -u ${USER_ID} -m -s /bin/bash wnd-admin \
 RUN mkdir /opt/python-venv \
   && chown wnd-admin:wnd-admin /opt/python-venv
 
-RUN echo "export PS1='\[\e[0;32m\](WND) \[\e[0;36m\]\u@\h:\[\e[0;33m\]\w\[\e[0m\]\$ '" >> /etc/bash.bashrc
+RUN echo "export PS1='\[\e[1;37m\]W\[\e[1;31m\]N\[\e[1;37m\]D\[\e[0m\] \[\e[0;36m\]\u:\[\e[0;33m\]\w\[\e[0m\]\$ '" >> /etc/bash.bashrc
 
 WORKDIR $HOME
 USER wnd-admin
