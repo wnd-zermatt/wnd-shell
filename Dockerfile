@@ -8,6 +8,9 @@ RUN apt-get update && \
         ca-certificates \
         curl \
         gnupg \
+        neovim \
+        bash-completion \
+        ssh \
         lsb-release \
         python3 python3-pip python3-venv build-essential \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
@@ -18,12 +21,16 @@ RUN apt-get update && \
 RUN userdel -r ubuntu || true
 RUN useradd -u ${USER_ID} -m -s /bin/bash wnd-admin \
   && echo "wnd-admin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN mkdir /opt/python-venv \
+  && chown wnd-admin:wnd-admin /opt/python-venv
+
+RUN echo "export PS1='\[\e[0;32m\](WND) \[\e[0;36m\]\u@\h:\[\e[0;33m\]\w\[\e[0m\]\$ '" >> /etc/bash.bashrc
 
 WORKDIR $HOME
 USER wnd-admin
 
-RUN python3 -m venv ~./python-venv
-ENV PATH="~./python-venv/bin:$PATH"
+RUN python3 -m venv /opt/python-venv
+ENV PATH="/opt/python-venv/bin:$PATH"
 RUN pip install --no-cache-dir --upgrade pip==24.0 \
       molecule==25.7.0 \
       ansible==11.9.0 \
