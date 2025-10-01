@@ -9,7 +9,7 @@ RUN apt-get update && \
         curl \
         gnupg \
         neovim \
-        git \
+        git git-lfs \
         bash-completion \
         ssh \
         sudo \
