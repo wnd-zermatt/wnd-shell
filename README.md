@@ -1,6 +1,10 @@
 # WND-shell
 
-shell in a container with tools like ansible for managing our infrastructure
+shell in a container with tools for managing our infrastructure:
+
+- ansible
+- molecule (ansible testing)
+- prettier, yamllint, ...
 
 ## Requirements
 
