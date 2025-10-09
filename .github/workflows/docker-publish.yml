@@ -1,4 +1,4 @@
-name: Build and Push Docker image to GitHub Container Registry
+name: Build and Push Container image to GitHub Container Registry
 
 on:
   push:
@@ -16,17 +16,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
+
       - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build Docker image
         run: |
-          docker build -t ghcr.io/wnd-zermatt/wnd-shell:latest .
+          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Push Docker image
+      - name: Build Container image
         run: |
-          docker push ghcr.io/wnd-zermatt/wnd-shell:latest
+          podman build -t ghcr.io/wnd-zermatt/wnd-shell:latest .
+
+      - name: Push Container image
+        run: |
+          podman push ghcr.io/wnd-zermatt/wnd-shell:latest

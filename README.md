@@ -8,8 +8,7 @@ shell in a container with tools for managing our infrastructure:
 
 ## Requirements
 
-- docker
-- your user ideally has UID 1000
+- podman
 
 ## Setup
 
