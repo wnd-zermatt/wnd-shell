@@ -10,6 +10,7 @@ RUN apt-get update && \
         gnupg \
         neovim \
         git git-lfs \
+        dnsutils mtr \
         bash-completion \
         ssh \
         sudo \
