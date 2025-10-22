@@ -15,6 +15,7 @@ RUN apt-get update && \
       ssh \
       sudo \
       lsb-release \
+      glab \
       python3 python3-pip python3-venv build-essential \
       && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
       && apt-get install -y --no-install-recommends nodejs \
