@@ -27,7 +27,9 @@ RUN apt-get update && \
 
 RUN userdel -r ubuntu || true
 RUN useradd -u ${USER_ID} -m -s /bin/bash wnd-admin \
-  && echo "wnd-admin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+  && echo "wnd-admin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
+  && chown -R wnd-admin:wnd-admin $HOME
+
 RUN mkdir /opt/python-venv \
   && chown wnd-admin:wnd-admin /opt/python-venv
 
