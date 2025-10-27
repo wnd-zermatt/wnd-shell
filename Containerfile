@@ -2,28 +2,32 @@ FROM ubuntu:24.04
 
 ENV HOME=/home/wnd-admin
 ARG USER_ID=1000
+ARG GLAB_VERSION=1.74.0
 
 RUN apt-get update && \
-      apt-get install -y --no-install-recommends \
-      ca-certificates \
-      curl \
-      gnupg \
-      neovim \
-      git git-lfs \
-      dnsutils mtr \
-      bash-completion \
-      ssh \
-      sudo \
-      lsb-release \
-      glab \
-      python3 python3-pip python3-venv build-essential \
-      && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-      && apt-get install -y --no-install-recommends nodejs \
-      && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
-      && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bookworm stable" > /etc/apt/sources.list.d/docker.list \
-      && apt-get update \
-      && apt-get install -y --no-install-recommends docker-ce-cli \
-      && npm install -g prettier
+  apt-get install -y --no-install-recommends \
+  ca-certificates \
+  curl \
+  gnupg \
+  neovim \
+  git git-lfs \
+  dnsutils mtr \
+  bash-completion \
+  ssh \
+  sudo \
+  lsb-release \
+  python3 python3-pip python3-venv build-essential \
+  && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+  && apt-get install -y --no-install-recommends nodejs \
+  && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian bookworm stable" > /etc/apt/sources.list.d/docker.list \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends docker-ce-cli \
+  && npm install -g prettier
+
+RUN curl -fsSL -o /tmp/glab.deb "https://gitlab.com/gitlab-org/cli/-/releases/v${GLAB_VERSION}/downloads/glab_${GLAB_VERSION}_linux_amd64.deb" \
+  && apt-get install -y /tmp/glab.deb \
+  && rm -f /tmp/glab.deb
 
 RUN userdel -r ubuntu || true
 RUN useradd -u ${USER_ID} -m -s /bin/bash wnd-admin \
