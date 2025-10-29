@@ -11,7 +11,7 @@ RUN apt-get update && \
   gnupg \
   neovim \
   git git-lfs \
-  dnsutils mtr \
+  dnsutils mtr iputils-ping \
   bash-completion \
   ssh \
   sudo \
