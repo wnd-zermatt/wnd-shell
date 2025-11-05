@@ -14,7 +14,7 @@ apt-get install -y --no-install-recommends \
   neovim \
   ldap-utils \
   git git-lfs \
-  dnsutils mtr iputils-ping \
+  dnsutils mtr iputils-ping ncat \
   podman slirp4netns fuse-overlayfs uidmap \
   bash-completion \
   ssh \
