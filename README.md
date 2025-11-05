@@ -4,7 +4,9 @@ shell in a container with tools for managing our infrastructure:
 
 - ansible
 - molecule (ansible testing)
-- prettier, yamllint, ...
+- linting: prettier, yamllint, ...
+- ldap-utils
+- glab (gitlab cli client)
 
 ## Requirements
 
@@ -19,4 +21,4 @@ shell in a container with tools for managing our infrastructure:
 
 `source <(curl -s https://raw.githubusercontent.com/wnd-zermatt/wnd-shell/refs/heads/main/source.sh)`
 
-provides the `wnd` command. You might want to add it to your `.bashrc`.
+provides the `wnd` command. You might want to add this line to your `.bashrc`.
