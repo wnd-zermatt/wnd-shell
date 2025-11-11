@@ -22,3 +22,5 @@ shell in a container with tools for managing our infrastructure:
 `source <(curl -s https://raw.githubusercontent.com/wnd-zermatt/wnd-shell/refs/heads/main/source.sh)`
 
 provides the `wnd` command. You might want to add this line to your `.bashrc`.
+
+use `wnd --pull` to pull latest image before starting the container.
