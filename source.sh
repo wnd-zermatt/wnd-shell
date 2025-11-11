@@ -8,6 +8,7 @@ wnd() {
     --pull always \
     -v /var/run/user/$(id -u)/podman/podman.sock:/var/run/user/1000/podman/podman.sock \
     -v ~/.wnd:/home/wnd-admin \
+    --cap-add=NET_RAW \
     --tmpfs /tmp \
     --userns=keep-id:uid=$(id -u),gid=$(id -g) \
     ghcr.io/wnd-zermatt/wnd-shell:latest bash
