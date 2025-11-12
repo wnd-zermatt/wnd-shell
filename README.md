@@ -7,6 +7,7 @@ shell in a container with tools for managing our infrastructure:
 - linting: prettier, yamllint, ...
 - ldap-utils
 - glab (gitlab cli client)
+- renovate
 
 ## Requirements
 
@@ -24,3 +25,11 @@ shell in a container with tools for managing our infrastructure:
 provides the `wnd` command. You might want to add this line to your `.bashrc`.
 
 use `wnd --pull` to pull latest image before starting the container.
+
+## Tools
+
+### Renovate
+
+Renovate is a tool to automate dependency updates. It can be used to keep your project dependencies up-to-date.
+
+run it inside the wnd container like this: `renovate --platform=local`

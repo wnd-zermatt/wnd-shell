@@ -33,6 +33,7 @@ apt-get install -y --no-install-recommends nodejs
 
 # npm global tools
 npm install -g prettier
+npm install -g renovate
 
 # cleanup to reduce image size
 apt-get clean
