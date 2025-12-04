@@ -17,6 +17,7 @@ apt-get install -y --no-install-recommends \
   dnsutils mtr iputils-ping ncat \
   podman slirp4netns fuse-overlayfs uidmap \
   freeradius-utils eapoltest \
+  shellcheck shfmt \
   bash-completion \
   ssh \
   sudo \
