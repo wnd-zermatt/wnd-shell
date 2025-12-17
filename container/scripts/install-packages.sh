@@ -9,7 +9,7 @@ apt-get update
 
 apt-get install -y --no-install-recommends \
   ca-certificates \
-  curl less \
+  curl less wget \
   gnupg \
   neovim \
   ldap-utils \
@@ -36,6 +36,9 @@ apt-get install -y --no-install-recommends nodejs
 # npm global tools
 npm install -g prettier
 npm install -g renovate
+
+# Install Bitwarden CLI
+npm install -g @bitwarden/cli
 
 # cleanup to reduce image size
 apt-get clean

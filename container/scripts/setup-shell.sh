@@ -19,3 +19,7 @@ BASH
 cat >> /etc/bash.bashrc <<'BASH'
 export PS1='\[\e[1;37m\]W\[\e[1;31m\]N\[\e[1;37m\]D\[\e[0m\]$(__wnd_git_branch) \e[1;34m\]\w\[\e[0m\]\$ '
 BASH
+
+cat >> /etc/bash.bashrc <<'BASH'
+source /opt/mtn-shell/bin/findup.sh
+BASH

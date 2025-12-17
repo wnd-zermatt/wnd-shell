@@ -23,6 +23,9 @@ RUN /tmp/container-scripts/setup-shell.sh
 ENV PATH="/opt/python-venv/bin:$PATH"
 # we're using hosts podman, so redirect the socket
 ENV CONTAINER_HOST=unix:///var/run/user/1000/podman/podman.sock
+COPY ./container/scripts/bin /opt/wnd-shell/bin
+ENV PATH="/opt/wnd-shell/bin:$PATH"
+ENV ANSIBLE_VAULT_PASSWORD_FILE="/tmp/ansible_vault_pass.txt"
 
 WORKDIR $HOME
 USER wnd-admin
