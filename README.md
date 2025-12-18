@@ -17,6 +17,7 @@ shell in a container with tools for managing our infrastructure:
 
 - create .wnd directory in your home directory `mkdir ~/.wnd`
 - copy things like ssh keys, configs and other stuff you want to use in the container to `~/.wnd`
+- start the container and configure bitwarden cli: `bw config server https://mybw.example.com`
 
 ### wnd-env
 
