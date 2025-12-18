@@ -21,7 +21,7 @@ export PS1='\[\e[1;37m\]W\[\e[1;31m\]N\[\e[1;37m\]D\[\e[0m\]$(__wnd_git_branch) 
 BASH
 
 cat >> /etc/bash.bashrc <<'BASH'
-source /opt/mtn-shell/bin/findup.sh
+source /opt/wnd-shell/bin/findup.sh
 BASH
 
 # Start ssh-agent
