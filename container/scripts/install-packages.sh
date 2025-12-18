@@ -9,7 +9,7 @@ apt-get update
 
 apt-get install -y --no-install-recommends \
   ca-certificates \
-  curl less wget \
+  curl less wget jq \
   gnupg \
   neovim \
   ldap-utils \
