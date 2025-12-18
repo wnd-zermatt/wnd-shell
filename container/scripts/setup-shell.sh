@@ -23,3 +23,8 @@ BASH
 cat >> /etc/bash.bashrc <<'BASH'
 source /opt/mtn-shell/bin/findup.sh
 BASH
+
+# Start ssh-agent
+cat >> /etc/bash.bashrc <<'BASH'
+eval $(ssh-agent -s) > /dev/null
+BASH
