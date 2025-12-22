@@ -1,0 +1,3 @@
+# bitwarden ids
+export BW_SSH_KEY_ID="change-me"
+export BW_ANSIBLE_VAULT_PASSWORD_ID="change-me"
