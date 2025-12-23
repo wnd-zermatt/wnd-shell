@@ -22,6 +22,7 @@ BASH
 
 cat >> /etc/bash.bashrc <<'BASH'
 source /opt/wnd-shell/bin/findup.sh
+source /opt/wnd-shell/bin/ssh.sh
 BASH
 
 # Start ssh-agent
