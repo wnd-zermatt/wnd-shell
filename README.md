@@ -32,6 +32,10 @@ after starting a shell with the `wnd` command, use `unlock` to unlock things lik
 
 ## Tools
 
+### Helper Commands
+
+**go**: does `ssh` and `sudo su -` in one single command, usage: `go my-server`
+
 ### Renovate
 
 Renovate is a tool to automate dependency updates. It can be used to keep your project dependencies up-to-date.
