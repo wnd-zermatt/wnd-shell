@@ -15,7 +15,7 @@ apt-get install -y --no-install-recommends \
   ldap-utils \
   git git-lfs \
   dnsutils mtr iputils-ping ncat \
-  podman slirp4netns fuse-overlayfs uidmap \
+  podman podman-compose slirp4netns fuse-overlayfs uidmap \
   freeradius-utils eapoltest \
   shellcheck shfmt \
   bash-completion \
