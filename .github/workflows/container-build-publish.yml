@@ -1,4 +1,4 @@
-name: Build and Push Container image to GitHub Container Registry
+name: Build and Push Multi-Arch Container Image
 
 on:
   push:
@@ -8,16 +8,19 @@ on:
     # Runs at 02:00 UTC every Tuesday.
     - cron: "0 2 * * 2"
 
-jobs:
-  build-and-push:
+jobs: 
+  build-and-push: 
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
 
     steps:
-      - name: Checkout repository
+      - name:  Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: Install Podman
         run: |
@@ -28,10 +31,25 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build Container image
-        run: |
-          podman build -t ghcr.io/wnd-zermatt/wnd-shell:latest .
+      - name: Build AMD64 Container image
+        run:  |
+          podman build --platform linux/amd64 -t ghcr.io/wnd-zermatt/wnd-shell:latest-amd64 .
 
-      - name: Push Container image
+      - name: Build ARM64 Container image
         run: |
-          podman push ghcr.io/wnd-zermatt/wnd-shell:latest
+          podman build --platform linux/arm64 -t ghcr.io/wnd-zermatt/wnd-shell:latest-arm64 . 
+
+      - name: Push AMD64 Container image
+        run: |
+          podman push ghcr.io/wnd-zermatt/wnd-shell:latest-amd64
+
+      - name: Push ARM64 Container image
+        run: |
+          podman push ghcr. io/wnd-zermatt/wnd-shell:latest-arm64
+
+      - name: Create and push manifest
+        run: |
+          podman manifest create ghcr.io/wnd-zermatt/wnd-shell:latest
+          podman manifest add ghcr.io/wnd-zermatt/wnd-shell:latest ghcr.io/wnd-zermatt/wnd-shell:latest-amd64
+          podman manifest add ghcr.io/wnd-zermatt/wnd-shell:latest ghcr.io/wnd-zermatt/wnd-shell:latest-arm64
+          podman manifest push ghcr.io/wnd-zermatt/wnd-shell:latest
