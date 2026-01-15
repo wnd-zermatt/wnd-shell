@@ -35,13 +35,13 @@ jobs:
         run:  |
           podman build --platform linux/amd64 -t ghcr.io/wnd-zermatt/wnd-shell:latest-amd64 .
 
-      - name: Build ARM64 Container image
-        run: |
-          podman build --platform linux/arm64 -t ghcr.io/wnd-zermatt/wnd-shell:latest-arm64 . 
-
       - name: Push AMD64 Container image
         run: |
           podman push ghcr.io/wnd-zermatt/wnd-shell:latest-amd64
+
+      - name: Build ARM64 Container image
+        run: |
+          podman build --platform linux/arm64 -t ghcr.io/wnd-zermatt/wnd-shell:latest-arm64 . 
 
       - name: Push ARM64 Container image
         run: |
