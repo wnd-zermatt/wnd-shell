@@ -11,7 +11,7 @@ apt-get install -y --no-install-recommends \
   ca-certificates \
   curl less wget jq \
   gnupg \
-  neovim \
+  neovim nano \
   ldap-utils \
   git git-lfs \
   dnsutils mtr iputils-ping ncat \
