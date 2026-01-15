@@ -33,7 +33,7 @@ wnd() {
   fi
 
   podman run --rm -it ${pull_flag} \
-    -v "${socket_path}:/var/run/user/1000/podman/podman. sock" \
+    -v "${socket_path}:/var/run/user/1000/podman/podman.sock" \
     -v ~/. wnd:/home/wnd-admin \
     --network=host \
     --cap-add=NET_RAW \
