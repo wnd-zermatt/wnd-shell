@@ -31,16 +31,16 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build AMD64 Container image
-        run:  |
-          podman build --platform linux/amd64 -t ghcr.io/wnd-zermatt/wnd-shell:latest-amd64 .
-
-      - name: Push AMD64 Container image
+      - name: Build ARM64 Container image
         run: |
-          podman push ghcr.io/wnd-zermatt/wnd-shell:latest-amd64
+          podman build --platform linux/arm64 -t ghcr.io/wnd-zermatt/wnd-shell:latest-arm64 . 
+
+      - name: Push ARM64 Container image
+        run: |
+          podman push ghcr. io/wnd-zermatt/wnd-shell:latest-arm64
 
       - name: Create and push manifest
         run: |
           podman manifest create ghcr.io/wnd-zermatt/wnd-shell:latest
-          podman manifest add ghcr.io/wnd-zermatt/wnd-shell:latest ghcr.io/wnd-zermatt/wnd-shell:latest-amd64
+          podman manifest add ghcr.io/wnd-zermatt/wnd-shell:latest ghcr.io/wnd-zermatt/wnd-shell:latest-arm64
           podman manifest push ghcr.io/wnd-zermatt/wnd-shell:latest
