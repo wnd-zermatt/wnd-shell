@@ -1,4 +1,4 @@
-name: Build and Push Multi-Arch Container Image
+name: Build and Push ARM64 Container Image
 
 on:
   push:
