@@ -37,7 +37,7 @@ jobs:
 
       - name: Push ARM64 Container image
         run: |
-          podman push ghcr. io/wnd-zermatt/wnd-shell:latest-arm64
+          podman push ghcr.io/wnd-zermatt/wnd-shell:latest-arm64
 
       - name: Create and push manifest
         run: |
