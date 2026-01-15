@@ -2,10 +2,10 @@
 
 case "$(uname -s)" in
   Linux*)
-    source "$(dirname "${BASH_SOURCE[0]}")/source-linux.sh"
+    source <(curl -s https://raw.githubusercontent.com/wnd-zermatt/wnd-shell/refs/heads/main/source-linux.sh)
     ;;
   Darwin*)
-    source "$(dirname "${BASH_SOURCE[0]}")/source-macos.sh"
+    source <(curl -s https://raw.githubusercontent.com/wnd-zermatt/wnd-shell/refs/heads/main/source-macos.sh)
     ;;
   *)
     echo "Unsupported OS: $(uname -s)"
