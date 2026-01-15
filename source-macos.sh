@@ -40,5 +40,5 @@ wnd() {
     --tmpfs /tmp \
     --userns=keep-id:uid=$(id -u),gid=$(id -g) \
     "${podman_args[@]}" \
-    ghcr.io/wnd-zermatt/wnd-shell:latest bash
+    ghcr.io/wnd-zermatt/wnd-shell:latest-arm64 bash
 }

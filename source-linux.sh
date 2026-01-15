@@ -22,5 +22,5 @@ wnd() {
     --cap-add=NET_RAW \
     --tmpfs /tmp \
     --userns=keep-id:uid=$(id -u),gid=$(id -g) \
-    ghcr.io/wnd-zermatt/wnd-shell:latest bash
+    ghcr.io/wnd-zermatt/wnd-shell:latest-amd64 bash
 }
